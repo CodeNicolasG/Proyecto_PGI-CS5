@@ -3,11 +3,30 @@ from django.db import models
 # Create your models here.
 
 class Miembro(models.Model):
-    nombre_completo = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     dni = models.CharField(max_length=20)
-    legajo_personal = models.CharField(max_length=10)
-    direccion = models.CharField(max_length=100)
+    legajo = models.CharField(max_length=10)
+    address = models.CharField(max_length=100)
     email_institucional = models.EmailField(unique=True)
-    email_personal = models.EmailField()
+    email_personal = models.EmailField(blank=True, null=True)
+    phone_personal = models.CharField(max_length=25)
+    phone_emergency = models.CharField(max_length=25)
+    ffss  = models.CharField(max_length=150)
+    destinos = models.TextField(blank=True, null=True)
+    weapon_assigned = models.CharField(max_length=10, choices=[('si', 'Sí'), ('no', 'No')], blank=True, null=True) 
+    weapon_number = models.CharField(max_length=50, blank=True, null=True) 
+    studies = models.TextField(blank=True, null=True)
+    certificaciones = models.TextField(blank=True, null=True)
+    skills = models.TextField(blank=True, null=True)
+    start_date = models.DateField()
+    efectivizacion_date = models.DateField(blank=True, null=True)
+    experience = models.TextField(blank=True, null=True)
+    privi_AD = models.CharField(max_length=50, blank=True, null=True)
+    grupo_AD = models.CharField(max_length=50, blank=True, null=True)
+    unidad = models.CharField(max_length=50, blank=True, null=True)
+    ticket = models.CharField(max_length=50, blank=True, null=True)
+    
+    def __str__(self): 
+        return self.name
     
     
