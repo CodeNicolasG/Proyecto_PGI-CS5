@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <!--Vinculamos el archivo CSS externo-->
+    <link rel="stylesheet" href="{% static 'estilos.css' %}">
+</head>
+<body>
+    <video autoplay muted loop id="video-background">
+        <source src="{% static 'Multimedia/Background-formulario.webm' %}" type="video/webm">
+        Tu navegador no soporta videos HTML5
+    </video>
+    <h1>CENTRO DE CINERGIA CIBERNÉTICA DE LAS FUERZAS POLICIALES Y DE SEGURIDAD FEDERAL</h1>
+    <h2>Formulario de Registro Nuevos Miembros</h2>
+    <form id="registroform">
+        <label for="name">Nombre Completo: </label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="dni">DNI: </label>
+        <input type="text" id="dni" name="dni" required>
+
+        <label for="legajo">Legajo Personal: </label>
+        <input type="text" id="legajo" name="legajo" required>
+
+        <label for="address">Dirección: </label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="email_institucional">Email Institucional: </label>
+        <input type="email" id="email_institucional" name="email_institucional" required>
+
+        <label for="email_personal">Email Personal: </label>
+        <input type="email" id="email_personal" name="email_personal">
+
+        <label for="phone_personal">Teléfono Particular: </label>
+        <input type="text" id="phone_personal" name="phone_personal" required>
+
+        <label for="phone_emergency">Teléfono en caso de Emergencia: </label>
+        <input type="text" id="phone_emergency" name="phone_emergency" required>
+
+        <label for="ffss">FFSS a la cual pertenece:</label>
+        <input type="text" id="ffss" name="ffss" required>
+
+        <label for="destinos">Destinos anteriores:</label>
+        <textarea name="destinos" id="destinos" rows="5"></textarea>
+
+        <label for="weapon_assigned">Armamento asignado: </label>
+        <select name="weapon_assigned" id="weapon_assigned" onchange="toggleWeaponNumber()">
+            <option value=" "> </option>
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="weapon_number">Número de Armamento:</label>
+        <input type="text" id="weapon_number" name="weapon_number" disabled>
+
+        <label for="studies">Estudios Cursados:</label>
+        <textarea name="studies" id="studies" rows="5"></textarea>
+
+        <label for="certificaciones">Certificaciones:</label>
+        <textarea name="certificaciones" id="certificaciones" rows="5"></textarea>
+
+        <label for="skills">Especialidades y/ó Herrramientas que maneja: </label>
+        <textarea name="skills" id="skills" rows="5"></textarea>
+
+        <label for="start_date">Fecha de designacion al CS5: </label>
+        <input type="date" id="start_date" name="start_date" required>
+
+        <label for="efectivizacion_date">Fecha de efectivización en el CS5: </label>
+        <input type="date" id="efectivizacion_date" name="efectivizacion_date">
+
+        <label for="experience">Experiencia Laboral Previa: </label>
+        <textarea name="experience" id="experience" rows="5"></textarea>
+
+        <label for="privi_AD">Privilegios | AD: </label>
+        <select name="privi_AD" id="privi_AD">
+            <option value=" "> </option>
+            <option value="por definir">por definir</option>
+            <option value="por definir">por definir</option>
+        </select>
+
+        <label for="grupo_AD">Grupo | AD:</label>
+        <select name="grupo_AD" id="grupo_AD">
+            <option value=" "> </option>
+            <option value="por definir">por definir</option>
+            <option value="por definir">por definir</option>
+        </select>
+
+        <label for="unidad">Unidad a la que pertenece: </label>
+        <select name="unidad" id="unidad">
+            <option value=" "> </option>
+            <option value="UIAT">UIAT</option>
+            <option value="UATO">UATO</option>
+            <option value="LAFD">LAFD</option>
+            <option value="UPDC">UPDC</option>
+            <option value="CORDINACION">CORDINACIÓN</option>
+        </select>
+
+        <label for="ticket">Privilegio | Ticketera: </label>
+        <select name="ticket" id="ticket">
+            <option value=" "> </option>
+            <option value="administrador">ADMINISTRADOR</option>
+            <option value="supervisor">SUPERVISOR</option>
+            <option value="desarrollador">DESARROLLADOR</option>
+            <option value="espectador">ESPECTADOR</option>
+        </select>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+ <!--   <script src="{% static 'formulario.js' %}"></script> -->
+
+</body>
+</html>

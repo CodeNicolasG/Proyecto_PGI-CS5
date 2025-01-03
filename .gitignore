@@ -1,0 +1,15 @@
+# Ignorar archivos de caché de Python
+__pycache__/
+*.pyc
+
+# Ignorar archivos estáticos generados
+NewMembers/__pycache__/
+NewMembers/NewMembers/__pycache__/
+NewMembers/members/__pycache__/
+NewMembers/members/migrations/__pycache__/
+members/static/
+
+
+# Ignorar archivos de configuración y temporales
+*.log
+*.tmp
