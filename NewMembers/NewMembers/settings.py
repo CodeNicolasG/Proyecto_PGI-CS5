@@ -1,31 +1,27 @@
 from pathlib import Path
+from decouple import config
 import environ
-import os
 
-#Inicial archivo .env
+# Inicializar el archivo .env
 env = environ.Env()
-
-#Leer archivo .env
-
+# Leer el archivo .env
 environ.Env.read_env()
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Construir rutas dentro del proyecto como BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Configuración rápida de desarrollo - no adecuada para producción
+# Ver https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
+# ADVERTENCIA DE SEGURIDAD: Mantén la clave secreta usada en producción secreta.
+SECRET_KEY = 'WKob\4R9DMX=~d#NJZobx@3hL9.kVo'
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t9$rxnrdz+(jb6+fcj*^&14008u=t1^2c6n#8s(*l$fzh106y+'
-
-# SECURITY WARNING: don't run with debug turned on in production!
+# ADVERTENCIA DE SEGURIDAD: No ejecutes con depuración activada en producción.
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.14.4']
 
-
-# Application definition
+# Definición de aplicaciones
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -35,10 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-# Mis Apps
-
+    # Mis Apps
     'members',
-    
 ]
 
 MIDDLEWARE = [
@@ -71,23 +65,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'NewMembers.wsgi.application'
 
-
-# Database
+# Base de datos
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT'),
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
+        'OPTIONS': {
+            'client_encoding': 'UTF8',
         }
+    }
 }
 
-
-# Password validation
+# Validación de contraseña
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -105,8 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
+# Internacionalización
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
@@ -117,13 +111,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
+# Archivos estáticos (CSS, JavaScript, Imágenes)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
 
-# Default primary key field type
+# Tipo de campo de clave primaria predeterminado
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
