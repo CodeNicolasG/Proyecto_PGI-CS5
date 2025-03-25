@@ -28,11 +28,11 @@
 
     <form method="post">
         {% csrf_token %}
-        <label for="name">Nombre Completo: </label>
+        <label for="name">Nombre y Apellido: </label>
         <input type="text" id="name" name="name" required>
 
         <label for="dni">DNI: </label>
-        <input type="text" id="dni" name="dni" required>
+        <input type="number" id="dni" name="dni" required>
 
         <label for="legajo">Legajo Personal: </label>
         <input type="text" id="legajo" name="legajo" required>
@@ -47,13 +47,20 @@
         <input type="email" id="email_personal" name="email_personal">
 
         <label for="phone_personal">Teléfono Particular: </label>
-        <input type="text" id="phone_personal" name="phone_personal" required>
+        <input type="number" id="phone_personal" name="phone_personal" required>
 
         <label for="phone_emergency">Teléfono en caso de Emergencia: </label>
-        <input type="text" id="phone_emergency" name="phone_emergency" required>
+        <input type="number" id="phone_emergency" name="phone_emergency" required>
 
         <label for="ffss">FFSS a la cual pertenece:</label>
-        <input type="text" id="ffss" name="ffss" required>
+        <select name="ffss" id="ffss">
+            <option value=" "> </option>
+            <option value="PREFECTURA NAVAL ARGENTINA">PREFECTURA NAVAL ARGENTINA</option>
+            <option value="POLICIA FEDERAL ARGENTINA">POLICIA FEDERAL ARGENTINA</option>
+            <option value="GENDARMERIA NACIONAL ARGENTINA">GENDARMERIA NACIONAL ARGENTINA</option>
+            <option value="POLICIA DE SEGURIDAD AEROPORTUARIA">POLICIA DE SEGURIDAD AEROPORTUARIA</option>            
+            <option value="SERVICIO PENITENCIARIO FEDERAL">SERVICIO PENITENCIARIO FEDERAL</option>
+        </select>
 
         <label for="destinos">Destinos anteriores:</label>
         <textarea name="destinos" id="destinos" rows="5"></textarea>
@@ -109,10 +116,10 @@
         <label for="unidad">Unidad a la que pertenece: </label>
         <select name="unidad" id="unidad">
             <option value=" "> </option>
-            <option value="UIAT">UIAT</option>
-            <option value="UATO">UATO</option>
-            <option value="LAFD">LAFD</option>
-            <option value="UPDC">UPDC</option>
+            <option value="UIAT">UIAT - Unidad de investigaciones de Alta Tecnología</option>
+            <option value="UATO">UATO - Unidad de Apoyo Técnico Operativo</option>
+            <option value="LAFD">LAFD - Laboratorio de Análisis Forense Digital</option>
+            <option value="UPDC">UPDC - Unidad de Prevencion Contra Delitos Ciberasistidos</option>
             <option value="CORDINACION">CORDINACIÓN</option>
         </select>
 

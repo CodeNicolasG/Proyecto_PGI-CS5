@@ -1,6 +1,7 @@
 from pathlib import Path
 from decouple import config
 import environ
+import os
 
 # Inicializar el archivo .env
 env = environ.Env()
@@ -19,7 +20,7 @@ SECRET_KEY = 'WKob\4R9DMX=~d#NJZobx@3hL9.kVo'
 # ADVERTENCIA DE SEGURIDAD: No ejecutes con depuración activada en producción.
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.14.4']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.14.4']
 
 # Definición de aplicaciones
 
@@ -33,6 +34,7 @@ INSTALLED_APPS = [
     
     # Mis Apps
     'members',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -114,7 +116,16 @@ USE_TZ = True
 # Archivos estáticos (CSS, JavaScript, Imágenes)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+# settings.py
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'members', 'static'),  # Directorio donde están los estáticos
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Carpeta a donde se recopilarán los archivos estáticos al hacer collectstatic
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'multimedia')
+
 
 # Tipo de campo de clave primaria predeterminado
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

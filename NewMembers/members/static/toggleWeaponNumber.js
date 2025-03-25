@@ -1,3 +1,4 @@
+// Función para manejar la activación/desactivación del campo de número de armamento
 function toggleWeaponNumber() {
     var weaponAssigned = document.getElementById('weapon_assigned').value;
     var weaponNumber = document.getElementById('weapon_number');
