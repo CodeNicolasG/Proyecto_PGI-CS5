@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'estilos.css' %}">
     <!-- Vinculamos el archivo JS externo -->
     <script src="{% static 'toggleWeaponNumber.js' %}"></script>
+    <script src="{% static 'actualizarCiudades.js' %}"></script>
 </head>
 <body>
     <video autoplay muted loop id="video-background">
@@ -39,6 +40,53 @@
 
         <label for="address">Dirección: </label>
         <input type="text" id="address" name="address" required>
+
+        <label for="birth_date">Fecha de nacimiento: </label>
+        <input type="date" id="birth_date" name="birth_date" required>
+
+        <label for="ciudadania">Ciudadanía:</label>
+        <select name="ciudadania" id="ciudadania">
+            <option value="Argentina">Argentina</option>
+            <option value="Brasil">Brasil</option>
+            <option value="Chile">Chile</option>
+            <option value="Paraguay">Paraguay</option>
+            <option value="Uruguay">Uruguay</option>
+            <option value="Otro">Otro</option>
+        </select>
+
+        <label for="provincia">Provincia de nacimiento:</label>
+        <select name="provincia" id="provincia" onchange="actualizarCiudades()">
+            <option value="">Seleccione una provincia</option>
+            <option value="Buenos Aires">Buenos Aires</option>
+            <option value="CABA">Ciudad Autónoma de Buenos Aires</option>
+            <option value="Catamarca">Catamarca</option>
+            <option value="Chaco">Chaco</option>
+            <option value="Chubut">Chubut</option>
+            <option value="Córdoba">Córdoba</option>
+            <option value="Corrientes">Corrientes</option>
+            <option value="Entre Ríos">Entre Ríos</option>
+            <option value="Formosa">Formosa</option>
+            <option value="Jujuy">Jujuy</option>
+            <option value="La Pampa">La Pampa</option>
+            <option value="La Rioja">La Rioja</option>
+            <option value="Mendoza">Mendoza</option>
+            <option value="Misiones">Misiones</option>
+            <option value="Neuquén">Neuquén</option>
+            <option value="Río Negro">Río Negro</option>
+            <option value="Salta">Salta</option>
+            <option value="San Juan">San Juan</option>
+            <option value="San Luis">San Luis</option>
+            <option value="Santa Cruz">Santa Cruz</option>
+            <option value="Santa Fe">Santa Fe</option>
+            <option value="Santiago del Estero">Santiago del Estero</option>
+            <option value="Tierra del Fuego">Tierra del Fuego</option>
+            <option value="Tucumán">Tucumán</option>
+        </select>
+
+        <label for="ciudad">Ciudad de nacimiento:</label>
+        <select name="ciudad" id="ciudad">
+            <option value="">Seleccione una ciudad</option>
+        </select>
 
         <label for="email_institucional">Email Institucional: </label>
         <input type="email" id="email_institucional" name="email_institucional" required>

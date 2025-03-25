@@ -17,12 +17,14 @@ class MiembroAdmin(ExportMixin, admin.ModelAdmin):  # ExportMixin habilita los f
     resource_class = MiembroResource
     formats = [XLSX, JSON, CSV]  # Formatos disponibles en el Admin
 
-    list_display = ('name', 'dni', 'legajo', 'address', 'email_institucional', 'email_personal', 
+    list_display = ('name', 'dni', 'legajo', 'address', 'birth_date', 'ciudadania', 'provincia_de_nacimiento', 'ciudad_de_nacimiento', 
+                    'email_institucional', 'email_personal', 
                     'phone_personal', 'phone_emergency', 'ffss', 'destinos', 'weapon_assigned', 
                     'weapon_number', 'studies', 'certificaciones', 'skills', 'start_date', 
                     'efectivizacion_date', 'experience', 'privi_AD', 'grupo_AD', 'unidad', 'ticket')
 
-    search_fields = ['name', 'dni', 'legajo', 'address', 'email_institucional', 'email_personal', 
+    search_fields = ['name', 'dni', 'legajo', 'address', 'birth_date', 'ciudadania', 'provincia_de_nacimiento', 'ciudad_de_nacimiento',
+                     'email_institucional', 'email_personal', 
                      'phone_personal', 'phone_emergency', 'ffss', 'destinos', 'weapon_assigned', 
                      'weapon_number', 'studies', 'certificaciones', 'skills', 'start_date', 
                      'efectivizacion_date', 'experience', 'privi_AD', 'grupo_AD', 'unidad', 'ticket']

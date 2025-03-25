@@ -5,6 +5,17 @@ class Miembro(models.Model):
     dni = models.CharField(max_length=20)
     legajo = models.CharField(max_length=10)
     address = models.CharField(max_length=100)
+    birth_date = models.DateField()
+    ciudadania = models.CharField(max_length=100, choices=[
+        ('Argentina', 'Argentina'),
+        ('Brasil', 'Brasil'),
+        ('Chile', 'Chile'),
+        ('Paraguay', 'Paraguay'),
+        ('Uruguay', 'Uruguay'),
+        ('Otro', 'Otro'),
+    ], default='Argentina')
+    provincia_de_nacimiento = models.CharField(max_length=100, blank=True, null=True)
+    ciudad_de_nacimiento = models.CharField(max_length=100, blank=True, null=True)
     email_institucional = models.EmailField(unique=True)
     email_personal = models.EmailField(blank=True, null=True)
     phone_personal = models.CharField(max_length=25)
